@@ -14,7 +14,7 @@ d3.csv('petal.csv', function(error, data){
 
 	var xScale = d3.scaleLinear()
 		.domain(d3.extent(data, d => +d.SepalLength))
-		.range(d3.extent(data, d => +d.SepalLength))
+		.range([0, 40])
 
 	var xAxis = svg
 	  .append('g')
@@ -23,20 +23,20 @@ d3.csv('petal.csv', function(error, data){
 
 	var yScale = d3.scaleLinear()
 		.domain(d3.extent(data, d => +d.SepalWidth))
-		.range(d3.extent(data, d => +d.SepalWidth))
+		.range([0, 40])
 
 	var yAxis = svg
 		.append('g')
 		.call(d3.axisLeft(yScale))
 
-	// var circles = svg
-	// 	.selectAll('circle')
-	// 	.data(data.map(d => +d))
-	// 	.enter()
-	// 	.append('circle')
-	// 	.attr('cx', xScale(data))
-	// 	.attr('cy', yScale(data))
-	// 	.attr('r', 5)
+	var circles = svg
+		.selectAll('circle')
+		.data(data)
+		.enter()
+		.append('circle')
+		.attr('cx', d => xScale(d.SepalLength))
+		.attr('cy', d => yScale(d.SepalWidth))
+		.attr('r', 5)
 
 	render(data, xScale, yScale, xAxis, yAxis);
 })
@@ -52,20 +52,20 @@ function render(data, xScale, yScale, xAxis, yAxis, Species = 'setosa'){
 	xScale.domain(d3.extent(data, d => d[Species]))
 	yScale.domain(d3.extent(data, d => d[Species]))
 
-	update.exit()
-		.transition(t)
-		.remove();
+	// update.exit()
+	// 	.transition(t)
+	// 	.remove();
 
-	var enter = update
-		.enter()
-		.append('circle')
+	// var enter = update
+	// 	.enter()
+	// 	.append('circle')
 
-	update.merge(enter)
-		.transition(t)
-		.delay(1000)
-		.attr('cx', d => xScale(d[Species]))
-		.attr('cy', d => yScale(d[Species]))
-		.attr('r', 5)
+	// update.merge(enter)
+	// 	.transition(t)
+	// 	.delay(1000)
+	// 	.attr('cx', d => xScale(d[Species]))
+	// 	.attr('cy', d => yScale(d[Species]))
+	// 	.attr('r', 5)
 	
 	yAxis
 		.transition(t)
