@@ -38,12 +38,12 @@ d3.csv('petal.csv', function(error, data){
 	// 	.attr('cy', yScale(data))
 	// 	.attr('r', 5)
 
-	render(data);
+	render(data, xScale, yScale);
 })
 
 
 
-function render(data, Species = 'setosa'){
+function render(data, xScale, yScale, Species = 'setosa'){
 	var t = d3.transition().duration(1000);
 
 	var update = svg.selectAll('circle')
