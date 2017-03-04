@@ -14,7 +14,7 @@ d3.csv('petal.csv', function(error, data){
 
 	var xScale = d3.scaleLinear()
 		.domain(d3.extent(data, d => +d.SepalLength))
-		.range([0, 40])
+		.range([0, width])
 
 	var xAxis = svg
 	  .append('g')
@@ -23,7 +23,7 @@ d3.csv('petal.csv', function(error, data){
 
 	var yScale = d3.scaleLinear()
 		.domain(d3.extent(data, d => +d.SepalWidth))
-		.range([0, 40])
+		.range([height, 0])
 
 	var yAxis = svg
 		.append('g')
