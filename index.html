@@ -3,12 +3,60 @@
 <head>
 	<title>D3</title>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.5.3/jstat.min.js"></script>
 </head>
 <body>
 	<div class="chart"></div>
-	<input type="checkbox" name="I. setosa" onclick="render('I. setosa')"> Setosa
-	<input type="checkbox" name="I. versicolor" onclick="render('I. versicolor')"> Versicolor
-	<input type="checkbox" name="I. virginica" onclick="render('I. virginica')"> Virginica
+	<form id="#data-corr">
+		<input type="checkbox" name="correlation" value="I. setosa"> Setosa
+		<input type="checkbox" name="correlation" value="I. versicolor"> Versicolor
+		<input type="checkbox" name="correlation" value="I. virginica"> Virginica
+	</form>
+	<table id="table-corr" class="table table-bordered">
+		<colgroup></colgroup>
+		<colgroup></colgroup>
+		<colgroup></colgroup>
+		<colgroup></colgroup>
+		<colgroup></colgroup>
+		<tbody>
+			<tr>
+				<td></td>
+				<td>Sepal Length</td>
+				<td>Sepal Width</td>
+				<td>Petal Length</td>
+				<td>Petal Width</td>
+			</tr>
+			<tr>
+				<td>Sepal Length</td>
+				<td>1</td>
+				<td>0.74</td>
+				<td>0.27</td>
+				<td>0.28</td>
+			</tr>
+			<tr>
+				<td>Sepal Width</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Petal Length</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Petal Width</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
 	<script type="text/javascript" src="./app.js"></script>
 </body>
 </html>

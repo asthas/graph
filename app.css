@@ -1,3 +1,23 @@
-circle {
-	fill: steelblue;
+.axis path,
+.axis line {
+	fill: none;
+	stroke: black;
+	stroke-width: 2;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: "Helvetica Neue";
+	font-size: 11px;
+	fill: black;
+}
+
+
+#table_corr {
+	font-size: 8px;
+	cursor:pointer;
+}
+
+#table_corr:hover{
+	background-color: grey
 }
